@@ -1,0 +1,328 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Alexander Vandenberg</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+	</head>
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Header -->
+					<header id="header">
+						<a href="index.html" class="logo">Alexander Vandenberg</a>
+					</header> 
+
+				<!-- Nav -->
+				<nav id="nav">
+					<ul class="links">
+						<li><a href="index.html">About Me</a></li>
+						<li class="active"><a href="data analysis projects.html">Data Analysis Projects</a></li>
+						<li><a href="Engineering Projects.html">Engineering Projects</a></li>
+						<li><a href="resume.html">Resume</a></li>
+					</ul>
+					<ul class="icons">
+						<li><a href="mailto: vandenberg.a@northeastern.edu" target="_blank">Email </a></li>
+						<li><a href="https://www.linkedin.com/in/alexander-vandenberg-33a92821b/" target="_blank"> LinkedIn </a></li>
+					</ul>
+				</nav>
+
+				<!-- Main -->
+					<div id="main">
+
+						<!-- Post -->
+							<section class="post">
+								<header class="major">
+									<h1>Project 1: <br>Technology Trend Analysis</h1>
+									</header>
+									<p><Center> <h2>March 2024 </h2> <h2>Project Goal: Discover what programming languages, 
+										database skills, and web frames are the most in demand using data from job postings
+										and surveys.</h2></Center>
+
+									<!--Introduction Section-->
+									<p><u><b>Introduction</b></u><br> This case study resembles the work a Junior Data Analyst would do for a global IT 
+										and business consulting services firm that is known for its expertise in IT solutions. To keep pace with changing 
+										technologies and remain competitive, this organization regularly analyzes data to help identify 
+										future skill requirements. I determined these future skill requirments using the six data analysis steps: <b>Ask, Prepare, 
+										Process, Analyze, Vizualize, and Act</b>. The Jupyter Notebook files I created this analysis can be found <a href="https://github.com/AlexanderVandenberg/Technology-Trend-Analysis" target="_blank"> here </a>.<br /></p>	
+									
+									<!--Ask Section-->
+									<p><u><b>Ask</b></u> <br><b>What programming languages, database skills, and Web Frames are the 
+										most popular now and are likely to be popular to the future?</b> Properly understanding technology trends is vital in the 
+										digital age because it has historically given companies a competetive advantage.</p>
+										
+									<!--Prepare Section-->
+									<p><u><b>Prepare</b></u> <br>
+									I used Beautiful Soup web scraping to find average annual salary by technology, and a web API to find number of jobs by location and technology. 
+									After importing this data to a pandas dataframe, I used Openpyxl to convert the dataframes to Excel files. These Excel files were used to create the 
+									Number of Jobs by City, Number of Jobs by Technology, and Average Annual Salary by Technology bar graphs in the share section. 
+									Finally I created a data frame from a Stackoverflow developer survey, that will be used in the analyze section.
+									</p>
+									
+									<!--Process Section-->
+									<p><u><b>Process</b></u> <br>
+									I started cleaning the Stackoverflow data by deleting duplicate rows using the drop_duplicates function.
+									I found missing values in the "Work Location" column using np.nan and replaced them with the most frequent value in the column. 
+									Finally, the compensation column was inconsistant because it contained weekly, monthly, and annual compensation.
+									I fixed this problem by creating a "normalized annual compensation" column that multiplyed weekly compensation by 50, 
+									monthly compensation by 12, and kept annual compensation the same.
+									
+									<!--Analyze Section-->
+									<p><u><b>Analyze</b></u> <br>
+									After cleaning the data, I used histograms and box plots to understand the distribution of annual salary and age for survey respondents.
+									<figure>
+										<center>
+										<img src="images/Age Histogram.png" alt="" style="width:50%">
+										<figcaption>The respondent ages are centered around 29, and most fall between 20 and 40.</figcaption>
+										<br>
+									</figure></center>
+									<center><figure>
+										<img src="images/Age Box Plot.png" alt="" style="width:50%">
+									<figcaption>The minimum age is 16, lower quartile is 25,  median is 29, upper quartile is 35, upper bound is 50, and maximum is 99.
+									</figcaption></figure></center>
+									<br>
+									<center>
+									<figure>
+										<img src="images/Salary Histogram.png" alt="" style="width:50%">
+									</figure>
+									<figcaption> Salaries are centered at $57,000, with most falling between $0 and $200,000. There are also a lot of outliers at the $1M and $2M marks.</figcaption>
+									</center>
+									<br>
+									<center>
+									<figure>
+										<img src="images/Salary Box Plot.png" alt="" style="width:50%">
+									</figure>
+									The minimum annual salary is $0, lower quartile is $26,169, median is $57,000, upper quartile is $95,000, upper bound is $200,000 and maximum is $2,000,000
+									</p></center>
+									
+									<!--Share Section-->
+									<p><u><b>Share:</b></u><br>
+									I started making visualizations by creating bar charts from the Excel files created with Openpyxl. 
+										
+									</header>
+									<figure>
+										<center>
+										<img src="images/Number of Jobs by City.png" alt="" style="width:50%">
+										<figcaption> The most popular jobs locations are Washington DC, Detroit, and Seattle</figcaption></center>
+										<br>
+									</figure>
+									<figure>
+										<center>
+										<img src="images/Number of Jobs by Technology.png" alt="" style="width:50%">
+										<figcaption>The technologies with the most jobs are C, Java, and Python<figcaption></center>
+										<br>
+									</figure>
+									<figure>
+										<center>
+										<img src="images/Average Annual Salary by Technology.png" alt="" style="width:50%">
+										<figcaption>The highest paying technologies are Swift, Python, and C++</figcaption></center>
+										<br>
+									</figure>
+									<br>
+									After generating the three bar graphs in Excel, I created a dashboard in Cognos Analytics with three tabs: Current Technology Usage, Future Technology Trend, and Survey Demographics.
+										The link to this dashboard can be found 
+										<a href="https://us1.ca.analytics.ibm.com/bi/?perspective=dashboard&pathRef=.my_folders%2FCapstone&action=view&mode=dashboard&subView=model0000018dd74b515b_00000000" target="_blank">
+										here</a>.</p>
+									<p><Center> <h2>Current Technology</h2> </Center>	
+									<p>
+									<center><figure>
+										<img src="images/Dashboard_1.png" alt="" style="width:90%">
+										<figcaption>The top current language, database, platform, and web frame are JavaScript, MySQL, Linux, and jQuery respectively.</figcaption>
+									</figure></center>
+									<br>
+									<p><Center> <h2>Future Technology</h2> </Center>	
+									</p>
+									<p>
+									<center><figure>
+										<img src="images/Dashboard_2.png" alt="" style="width:90%">
+									<figcaption>The language, database, platform, and web frame most desired next year are JavaScript, MySQL, Linux, and jQuery respectively.</figcaption>
+									</figure></center>
+									</p>
+									<br>
+									<p><Center> <h2>Survey Demographics</h2> </Center>
+									<p>
+									<center><figure>
+										<img src="images/Dashboard_3.png" alt="" style="width:90%">
+									<figcaption>The majority of respondents are male, and the plurality of respondents are from the united states.
+									Most respondents are between 20 and 40 years old, and the plurality of respondents are men with a bachelor's degree.
+									</figcaption>
+									</figure></center>
+									</p>
+									
+									<!--Act Section-->
+									<p><u><b>Act</b></u> <br>The top four findings based on my analysis:
+										<ol>
+											<li>JavaScript is the leading programming language, but Python is close to surpasing JavaScript. 
+												TypeScript is also fast growing, and could potentially convert JavaScript users.</li>
+											<li>MySQL is the most popular database, and PostSQL and MongoDB are gaining popularity. 
+												Microsoft SQL Server and SQLite should be avoided due to decreasing popularity.  </li>
+											<li>JQuery, React.js, and Angular/Angular.js are the most popular webframes, 
+												but JQuery's growth seems to be stagnating.</li>
+											<li>Linux and Windows are the most popular platforms, and Docker is quickly approaching them in popularity.</li>
+										  </ol>
+									</p>
+							</section>
+
+					</div>
+
+			</div>
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Main -->
+					<div id="main">
+
+						<!-- Post -->
+							<section class="post">
+								<header class="major">
+									<h1>Project 2: <br> Cyclistic Case Study</h1>
+									
+									</header>
+
+									<p><Center> <h2>August 2022 </h2> <h2>Project Goal: To determine how annual members and casual riders use Cyclistic bikes differently </h2></Center>
+
+									<p><u><b>Introduction:</b></u> This case study is for the Google Data Analytics Capstone course and is based on data from Cyclistic, 
+										a Chicago based bikeshare company.  
+										The study follows the six data analysis steps: <b>Ask, Prepare, Process, Analyze, Visualize, Act</b>.
+									The raw data can be found <a href="documents/Cyclistic Raw Data.csv" target="_blank">here</a> and the post-analysis excel spreasheet can be found <a href="documents/Cyclistic Data Analysis.xlsx" target="_blank">here</a>.<br /></p>
+
+									<div class="image main"><img src="images/logo.jpg" alt="" /></div>
+									
+									<!--Ask Section-->
+									<p><u><b>Ask</b></u> <br> Cyclistic has casual riders that pay a small fee for each ride and members 
+										who pay an annual fee for unlimited rides. The question for this analysis is <b>how do annual 
+										members and casual riders use Cyclistic bikes differently</b>? This answer to this question can be 
+										used to encourage more casual riders to switch to annual members, ultimately generating more revenue.</p>
+
+									<!--Prepare Section-->
+									<p><u><b>Prepare</b></u> <br>The data to be analyzed is from .csv file that contains data for Cyclistic trips 
+										for January 2022. This is a first party source since it comes from directly from Cyclistic. It is a comprehensive list 
+										all 103,770 trips for the month of January. To prepare the data for analysis, I converted the file to a .xlsx file.   </p>
+
+										
+									<!--Process Section-->
+									<p><u><b>Process</b></u> <br>I created column E, "ride_length", by subtracting the start time from the end time and changing to the 
+										time format. I also created column F, "day_of_week", using the TEXT function on the "started_at" column. I cleaned the data by 
+										using a filter that only just includes rows with rides lasting zero or less minutes and deleting them.  </p>
+
+									<center>
+										<figure>
+										<img src="images/process.jpg" alt="" style="width:80%">
+										<figcaption>Snapshots of the columns I added.</figcaption>
+									</figure></center>
+
+									<p><br></p>
+									
+									<!--Analyze Section-->
+									<p><u><b>Analyze</b></u> <br>I created the following pivot tables to aggregate the data:</p>
+									
+									<center>
+									<figure>
+										<img src="images/Analyze_1.jpg" alt="" style="width:80%">
+										<figcaption>Pivot table 1: lists the number of rides that occured on each day of the week by 
+											member type. It also displays the percentage of rides that were member or casual occuring on each day of the week.  </figcaption>
+									</figure></center>
+
+									<p><br></p>
+									
+									<center>
+									<figure>
+										<img src="images/Analyze_2.jpg" alt="" style="width:80%">
+										<figcaption>Pivot table 2: lists the average ride lengths in minutes during each day of the week by memeber type. </figcaption>
+									</figure></center>
+									
+									<p><br></p>
+
+									<center>
+									<figure>
+										<img src="images/Analyze_3.png" alt="" style="width:50%">
+										<figcaption>Pivot Table 3: lists the average ride lengths in minutes during each day of the week by memeber type. </figcaption>
+									</figure></center>
+
+									<p><br></p>
+
+									<!--Share Section-->
+									<p><u><b>Share</b></u> <br>I created graphs from the pivot tables to gain insights from the data:</p>
+
+									<center>
+									<figure>
+										<img src="images/Share_1.jpg" alt="" style="width:80%">
+										<figcaption>The number of casual rides is similar for every weekday, except for a spike on Saturday. This could be 
+											because most people have more free time to ride casually on Saturdays. In contrast, members tend to ride more on weekdays, 
+											because they more frequently use bikes to get to work or regular weekday events. In addition, members ride much more often 
+											than casual users because members pay a flat fee for the month while casuals have to pay for every ride. 
+											</figcaption>
+									</figure></center>
+
+
+									<p><br></p>
+									
+									<center>
+									<figure>
+										<img src="images/Share_2.png" alt="" style="width:60%">
+										<figcaption> Despite the vast majority of riders being members, over one third of the total ride time is by casuals. 
+											These pie charts demostrate that casuals ride less frequently and for longer than members.</figcaption>
+									</figure></p></center>
+										
+									<p><br></p>
+									
+									<center>
+									<figure>
+										<img src="images/Share_3.jpg" alt="" style="width:80%">
+										<figcaption>Casual riders tend to ride for two to three times as long as members. This may be because casual riders have to 
+											pay for each ride and want to make the most of each trip. Inversely, members tend to ride more frequently for less 
+											time per ride, because they pay a flat fee no matter how many trips they take. Casual rider's trip durations also vary much more depending on the day of the week than members. This can be due to 
+											members having consistent routes to work or school that they frequently ride.</figcaption>
+									</figure></center>
+
+									<p><br></p>
+									
+									<center>
+									<figure>
+										<img src="images/Share_4.jpg" alt="" style="width:50%">
+										<figcaption>Casual riders more frequently use electric bikes than classic bikes, 
+											while members use more classic bikes than electric bikes.</figcaption>
+									</figure></center>
+									<br>
+									<center><p><h2>Cyclistic Membership Dashboard</h2></p></center>
+									<center><figure>
+										<img src="images/Cyclistic Dashboard.png" alt="" style="width:90%">
+										<figcaption>Finally, I used Tableau to organize these visualizations into an interactive dashboard 
+											that can be found <a href="https://prod-useast-b.online.tableau.com/t/vonvandenberg468cf32aa3/views/CyclisticCaseStudy/Dashboard?:origin=card_share_link&:embed=n" target="_blank">here.</a>
+										</figcaption>
+									</figure></center></p>
+
+									<!--Act Section-->
+									<p><u><b>Act</b></u> <br>The top three recommendations based on my analysis:
+										<ol>
+											<li>Because memberships are more popular on weekdays than weekends, advertise memberships as a less expensive way to get to work than driving.</li>
+											<li>Offer a cheaper membership that only allows the customer to ride on the weekends. The weekend membership would target the relatively 
+												large amount of casual riders that ride on weekends.  </li>
+											<li>Instead of charging one fee per ride, charge casual rides by a smaller fee per minute of riding. This time based fee insentivises people to get a membership if they 
+												would like to ride for a longer time without penalty.</li>
+										  </ol>
+									</p>
+
+								<p><center><i><a href="index.html">Previous Page</a></i> / <i><a href="engineering projects.html">Next Page</a></i></center></p>
+						</section>
+						
+				</div>
+				
+		</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>
