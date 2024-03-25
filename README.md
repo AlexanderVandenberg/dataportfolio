@@ -1,1 +1,1 @@
-Hello! This is my repository for my data analytics portfolio. Index is my About Me page, DA Project 1 is my Tecnology Trend Analysis, DA Project 2 is my Cyclistic Case Study, and DA Project 3 is my Data Professional Survey Analysis, and Resume is my resume. 
+Hello! This is my repository for my data analytics portfolio. Index is my About Me page, DA Project 1 is my Tecnology Trend Analysis, DA Project 2 is my Cyclistic Case Study, and DA Project 3 is my Data Professional Survey Analysis, and resume is my resume. 
