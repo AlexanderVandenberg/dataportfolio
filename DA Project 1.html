@@ -1,0 +1,189 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Alexander Vandenberg</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+	</head>
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Header -->
+					<header id="header">
+						<a href="index.html" class="logo">Alexander Vandenberg</a>
+					</header> 
+
+				<!-- Nav -->
+				<nav id="nav">
+					<ul class="links">
+						<li><a href="index.html">About Me</a></li>
+						<li class="active"><a href="DA Project 1.html">Project 1</a></li>
+						<li><a href="DA Project 2.html">Project 2</a></li>
+						<li><a href="DA Project 3.html">Project 3</a></li>
+						<li><a href="resume.html">Resume</a></li>
+					</ul>
+					<ul class="icons">
+						<li><a href="mailto: vandenberg.a@northeastern.edu" target="_blank">Email </a></li>
+						<li><a href="https://www.linkedin.com/in/alexander-vandenberg-33a92821b/" target="_blank"> LinkedIn </a></li>
+					</ul>
+				</nav>
+
+				<!-- Main -->
+					<div id="main">
+
+						<!-- Post -->
+							<section class="post">
+								<header class="major">
+									<h1>Project 1: <br>Technology Trend Analysis</h1>
+									</header>
+									<p><Center> <h2>March 2024 </h2> <h2>Project Goal: Discover what programming languages, 
+										database skills, and web frames are the most in demand using data from job postings
+										and surveys.</h2></Center>
+
+									<!--Introduction Section-->
+									<p><u><b>Introduction</b></u><br> This case study resembles the work a Junior Data Analyst would do for a global IT 
+										and business consulting services firm that is known for its expertise in IT solutions. To keep pace with changing 
+										technologies and remain competitive, this organization regularly analyzes data to help identify 
+										future skill requirements. I determined these future skill requirments using data from the 2019 Stackoverflow developer survey, web scraping, and web APIs. This analysis is split into six sections: <b>Ask, Prepare, 
+										Process, Analyze, Vizualize, and Act</b>. The scripts I created for this analysis can be found here: <a href="https://github.com/AlexanderVandenberg/Technology-Trend-Analysis" target="_blank"> Jupyter Notebook files </a>.<br /></p>	
+										<center>
+											<img src="images/Developer Survey.png" alt="" style="width:80%">
+											<br>
+										</center>
+									<!--Ask Section-->
+									<p><u><b>Ask</b></u> <br><b>What programming languages, database skills, and Web Frames are the 
+										most popular now and are likely to be popular to the future?</b> Properly understanding technology trends is vital in the 
+										digital age because it has historically given companies a competetive advantage.</p>
+										
+									<!--Prepare Section-->
+									<p><u><b>Prepare</b></u> <br>
+									I used Beautiful Soup web scraping to find average annual salary by technology, and a web API to find number of jobs by location and technology. 
+									After importing this data to a pandas dataframe, I used Openpyxl to convert the dataframes to Excel files. These Excel files were used to create the 
+									Number of Jobs by City, Number of Jobs by Technology, and Average Annual Salary by Technology bar graphs in the <b>share</b> section. 
+									Finally I created a data frame from the 2019 Stackoverflow developer survey data, which will be used in the <b>analyze</b> section.
+									</p>
+									
+									<!--Process Section-->
+									<p><u><b>Process</b></u> <br>
+									I started cleaning the Stackoverflow data by deleting duplicate rows using the drop_duplicates function.
+									I found missing values in the "Work Location" column using np.nan and replaced them with the most frequent value in the column. 
+									Finally, the compensation column was inconsistant because it contained weekly, monthly, and annual compensation.
+									I fixed this problem by creating a "normalized annual compensation" column that multiplyed weekly compensation by 50 (assuming two weeks of holidays per year), 
+									monthly compensation by 12, and kept annual compensation the same.
+									
+									<!--Analyze Section-->
+									<p><u><b>Analyze</b></u> <br>
+									After cleaning the data, I used histograms and box plots to understand the distribution of annual salary and age for survey respondents.
+									<figure>
+										<center>
+										<img src="images/Age Histogram.png" alt="" style="width:100%">
+										<figcaption>The respondent ages are centered around 29, and most fall between 20 and 40. 
+											The minimum age is 16, lower quartile is 25,  median is 29, upper quartile is 35, upper bound is 50, and maximum is 99.</figcaption>
+										<br>
+									</figure></center>
+									<!--
+									<center><figure>
+										<img src="images/Age Box Plot.png" alt="" style="width:60%">
+									<figcaption>The minimum age is 16, lower quartile is 25,  median is 29, upper quartile is 35, upper bound is 50, and max is 99.
+									</figcaption></figure></center>
+									<br>-->
+									<center>
+									<figure>
+										<img src="images/Salary Histogram.png" alt="" style="width:100%">
+									</figure>
+									<figcaption> Salaries are centered at $57,000, with most falling between $0 and $200,000. There are also a lot of outliers at the $1M and $2M marks. 
+										The minimum annual salary is $0, lower quartile is $26,169, median is $57,000, upper quartile is $95,000, upper bound is $200,000 and maximum is $2,000,000.</figcaption>
+									</center>
+									<br>
+									<!--
+									<center>
+									<figure>
+										<img src="images/Salary Box Plot.png" alt="" style="width:60%">
+									</figure>
+									The minimum annual salary is $0, lower quartile is $26,169, median is $57,000, upper quartile is $95,000, upper bound is $200,000 and maximum is $2,000,000
+									</p></center>-->
+									
+									<!--Share Section-->
+									<p><u><b>Share</b></u><br>
+									I started making visualizations by creating bar charts from the Excel files created with Openpyxl. 
+										
+									</header>
+									<figure>
+										<center>
+										<img src="images/Number of Jobs by City.png" alt="" style="width:60%">
+										<figcaption> The most popular jobs locations are Washington DC, Detroit, and Seattle.</figcaption></center>
+										<br>
+									</figure>
+									<figure>
+										<center>
+										<img src="images/Number of Jobs by Technology.png" alt="" style="width:60%">
+										<figcaption>The technologies with the most jobs are C, Java, and Python.<figcaption></center>
+										<br>
+									</figure>
+									<figure>
+										<center>
+										<img src="images/Average Annual Salary by Technology.png" alt="" style="width:60%">
+										<figcaption>The highest paying technologies are Swift, Python, and C++.</figcaption></center>
+										<br>
+									</figure>
+									<br>
+									After generating the three bar graphs in Excel, I created <a href="https://us1.ca.analytics.ibm.com/bi/?perspective=dashboard&pathRef=.my_folders%2FCapstone&action=view&mode=dashboard&subView=model0000018dd74b515b_00000000" target="_blank">
+										this dashboard in Cognos Analytics</a> with three tabs: Current Technology Usage, Future Technology Trend, and Survey Demographics.
+										</p>
+									<p><Center> <h2>Current Technology</h2> </Center>	
+									<p>
+									<center><figure>
+										<img src="images/Dashboard_1.png" alt="" style="width:90%">
+										<figcaption>The top current language, database, platform, and web frame are JavaScript, MySQL, Linux, and jQuery.</figcaption>
+									</figure></center>
+									<br>
+									<p><Center> <h2>Future Technology</h2> </Center>	
+									</p>
+									<p>
+									<center><figure>
+										<img src="images/Dashboard_2.png" alt="" style="width:90%">
+									<figcaption>The language, database, platform, and web frame most desired next year are JavaScript, MySQL, Linux, and jQuery.</figcaption>
+									</figure></center>
+									</p>
+									<br>
+									<p><Center> <h2>Survey Demographics</h2> </Center>
+									<p>
+									<center><figure>
+										<img src="images/Dashboard_3.png" alt="" style="width:90%">
+									<figcaption>The majority of respondents are male, and the plurality of respondents are from the united states.
+									Most respondents are between 20 and 40 years old, and the plurality of respondents are men with a bachelor's degree.
+									</figcaption>
+									</figure></center>
+									</p>
+									
+									<!--Act Section-->
+									<p><u><b>Act</b></u> <br>The top four findings based on my analysis:
+										<ol>
+											<li>JavaScript is the leading programming language, but Python is close to surpasing JavaScript. 
+												TypeScript is also fast growing, and could potentially convert JavaScript users.</li>
+											<li>MySQL is the most popular database, and PostSQL and MongoDB are gaining popularity. 
+												Microsoft SQL Server and SQLite should be avoided due to decreasing popularity.  </li>
+											<li>JQuery, React.js, and Angular/Angular.js are the most popular webframes, 
+												but JQuery's growth seems to be stagnating.</li>
+											<li>Linux and Windows are the most popular platforms, and Docker is quickly approaching them in popularity.</li>
+										  </ol>
+									</p>
+									<p><center><i><a href="index.html">Previous Page</a></i> / <i><a href="DA Project 2.html">Next Page</a></i></center></p>
+							</section>
+					</div>
+			</div>
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>
